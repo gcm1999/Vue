@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue指令</title>
+    <script src="./Vuev2.7.7.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <input type="text" v-model="stu">
+        <input type="button" value="change" @click="change">
+        
+        <ul>
+            <li v-for="(value,index) in stu">{{ index+1 + value }}</li>
+        </ul>
+
+        <input type="text" v-for="item in arr" v-model="item.name">
+        <input type="button" value="isShow" @click="isShow">
+        <ul v-show="show">
+            <li v-for="item in arr">{{item.name}}</li>
+        </ul>
+
+    </div>
+
+    <script>
+
+        var app = new Vue({
+
+            el:"#app",
+            data:{
+                stu:['亚索','阿卡丽','艾瑞利亚'],
+                arr:[
+                    {name:'狂风绝息斩'},
+                    {name:'表里莎缭乱'},
+                    {name:'艾欧尼亚昂扬不灭'},
+                ],
+                show:true
+            },
+            methods:{
+                change:function(){
+                    this.stu = ['疾风剑豪','离群之刺','刀锋之女'];
+                },
+                isShow:function(){
+                    this.show = !this.show;
+                }
+            }
+
+        })
+
+    </script>
+</body>
+</html>

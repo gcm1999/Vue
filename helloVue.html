@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>helloVue</title>
+  </head>
+  <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+    <script src="./Vuev2.7.7.js"></script>
+  <body>
+    <div id="app" class="app">
+        {{message}}
+        <p v-on:click="hello">{{message}}</p>
+        <p @click="hello">{{message}}</p>
+        <p v-text="content"></p>
+        <p v-html="content"></p>
+        <div></div>
+    </div>
+    
+    <script>
+      var app = new Vue({
+        // el: "#app",
+        // el: ".app",
+        el: "div",
+        data: {
+          message: "helloVue",
+          content:"<a href='https://baidu.com' target='_blank'>baidu</a>"
+        },
+        methods:{
+            hello:function(){
+                alert('helo')
+            }
+        }
+      });
+    </script>
+  </body>
+</html>
