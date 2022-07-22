@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象属性</title>
+</head>
+<body>
+    <script>
+
+        let person = {
+            name:'gcm',
+            age:24
+        }
+        Object.defineProperty(person,'sex',{
+            value:1,
+            enumerable:true,//控制属性是否可以枚举，默认值是false
+            writable:true,//控制属性是否可以修改，默认值是false
+            configurable:true,//控制属性是否可以被删除，默认值是false
+            // get:function(){
+            //     return sex;
+            // }
+        })
+
+        console.log(person);
+
+    </script>
+</body>
+</html>
