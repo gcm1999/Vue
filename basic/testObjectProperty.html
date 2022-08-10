@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>对象属性</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
+      let age = 1;
+      let person = {
+        name: "gcm",
+        sex: "男",
+      };
+      Object.defineProperty(person, "age", {
+        // value:1,
+        // enumerable:true,//控制属性是否可以枚举，默认值是false
+        // writable:true,//控制属性是否可以修改，默认值是false
+        // configurable:true,//控制属性是否可以被删除，默认值是false
+        get: function () {
+          return age;
+        },
+        set: function (value) {
+          age = value;
+        },
+      });
 
-        let person = {
-            name:'gcm',
-            age:24
+      for (const key in person) {
+        if (Object.hasOwnProperty.call(person, key)) {
+          console.log(person[key]);
         }
-        Object.defineProperty(person,'sex',{
-            value:1,
-            enumerable:true,//控制属性是否可以枚举，默认值是false
-            writable:true,//控制属性是否可以修改，默认值是false
-            configurable:true,//控制属性是否可以被删除，默认值是false
-            // get:function(){
-            //     return sex;
-            // }
-        })
-
-        console.log(person);
-
+      }
+      console.log(person);
     </script>
-</body>
+  </body>
 </html>
