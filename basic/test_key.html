@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vue-key</title>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="add">点击添加</button>
+      <ul>
+        <li v-for="(item,index) in arr" key="index">
+          {{item.name}}
+          <input type="text" />
+        </li>
+      </ul>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script>
+      Vue.config.productionTip = false;
+      let app = new Vue({
+        el: "#app",
+        data: {
+          arr: [{ name: "gg" }, { name: "cc" }, { name: "mm" }],
+        },
+        methods: {
+          add() {
+            const p = { name: "kk" };
+            this.arr.unshift(p);
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
