@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>nextTick</title>
   </head>
   <body>
     <div id="app">
@@ -38,16 +38,20 @@
           };
         },
         methods: {
-          add() {
+          async add() {
             const num = this.count;
             for (let i = num; i < num + 11; i++) {
-              this.count = i;
+              this.updateCount(i);
             }
-            console.log(this.$refs.num);
-            console.log("111:"+this.$refs.num.innerText);
-            this.$nextTick(() => {
-              console.log("222:"+this.$refs.num.innerText);
-            });
+            // console.log(await this.$nextTick());
+            // console.log(this.$refs.num);
+            // console.log("111:" + this.$refs.num.innerText);
+            // this.$nextTick(() => {
+            //   console.log("222:" + this.$refs.num.innerText);
+            // });
+          },
+          updateCount(i) {
+            this.count = i;
           },
         },
         watch: {
@@ -55,10 +59,10 @@
             handler(newValue, oldValue) {
               console.log("new:" + newValue);
               console.log("old", oldValue);
-              console.log("watch:"+this.$refs.num.innerText);
-              this.$nextTick(() => {
-              console.log("nextTick:"+this.$refs.num.innerText);
-            });
+              //   console.log("watch:"+this.$refs.num.innerText);
+              //   this.$nextTick(() => {
+              //   console.log("nextTick:"+this.$refs.num.innerText);
+              // });
             },
           },
         },

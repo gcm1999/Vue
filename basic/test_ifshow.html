@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>v-if/v-show</title>
+  </head>
+  <body>
+    <div id="app">
+      <p v-if="isShow" v-for="item in items">{{ item.title }}</p>
+      <button @click="add">添加</button>
+    </div>
+
+    <script src="../js/vue.js"></script>
+
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data() {
+          return {
+            items: [{ title: "foo" }, { title: "baz" }],
+          };
+        },
+        computed: {
+          isShow() {
+            return this.items && this.items.length > 0;
+          },
+        },
+
+        methods: {
+          add() {
+            // this.items[this.items.length] = {title:"ggg"}
+
+            //Vue 不允许在已经创建的实例上动态添加新的响应式属性
+            //若想实现数据与视图同步更新，可采取下面三种解决方案：
+            //Vue.set()
+            //Object.assign()
+            //$forcecUpdated()
+
+            Vue.set(this.items, this.items.length, { title: "ggg" });
+            // this.items = Object.assign([],this.items,[{title:"ggg"}])
+            console.log(this.items);
+          },
+        },
+      });
+      app.$mount("#app");
+    </script>
+  </body>
+</html>
