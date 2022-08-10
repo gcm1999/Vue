@@ -9,6 +9,8 @@
   <body>
     <div id="app">
       <h1>hello,{{name}}</h1>
+      <h2 ref="num">{{count}}</h2>
+      <button @click="add">+10</button>
     </div>
     <script src="../js/vue.js"></script>
 
@@ -32,7 +34,33 @@
         data() {
           return {
             name: "gcm",
+            count: 0,
           };
+        },
+        methods: {
+          add() {
+            const num = this.count;
+            for (let i = num; i < num + 11; i++) {
+              this.count = i;
+            }
+            console.log(this.$refs.num);
+            console.log("111:"+this.$refs.num.innerText);
+            this.$nextTick(() => {
+              console.log("222:"+this.$refs.num.innerText);
+            });
+          },
+        },
+        watch: {
+          count: {
+            handler(newValue, oldValue) {
+              console.log("new:" + newValue);
+              console.log("old", oldValue);
+              console.log("watch:"+this.$refs.num.innerText);
+              this.$nextTick(() => {
+              console.log("nextTick:"+this.$refs.num.innerText);
+            });
+            },
+          },
         },
       });
       //第二种写法
