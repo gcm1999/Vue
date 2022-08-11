@@ -24,7 +24,8 @@
         },
         watch: {
           person: {
-            deep:true,
+            immediate: true,
+            deep: true,
             handler(newValue, oldValue) {
               console.log("new:", newValue);
               console.log("old:", oldValue);
