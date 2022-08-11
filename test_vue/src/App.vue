@@ -1,28 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <h1>获取到的名字:{{ name }}</h1>
+    <Student :getStudentName="getStudentName"></Student>
+    <School @myEvent="getSchoolName"></School>
   </div>
 </template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Student from "./components/Student.vue";
+import School from "./components/School.vue";
 export default {
-  name: 'App',
+  name: "App",
+  data() {
+    return {
+      name: "gg",
+    };
+  },
   components: {
-    HelloWorld
-  }
-}
+    Student,
+    School,
+  },
+  methods: {
+    getStudentName(name) {
+      this.name = name;
+    },
+    getSchoolName(name) {
+      this.name = name;
+    },
+  },
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style scoped></style>

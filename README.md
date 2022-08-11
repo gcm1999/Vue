@@ -18,7 +18,8 @@
                 inserted(element,binding){}
                 update(element,binding){}
             }
-        }
+        },
+        mixin:[]
     })
 ```
 
