@@ -2,6 +2,7 @@
 
 ## 创建 Vue 对象
 
+```
     new Vue({
         el:"",
         data:{
@@ -9,8 +10,17 @@
         },
         methods:{
 
+        },
+        //自定义指令
+        derectives:{
+            xxx:{
+                bind(element,binding){}
+                inserted(element,binding){}
+                update(element,binding){}
+            }
         }
     })
+```
 
 ## vue 指令
 
@@ -21,6 +31,12 @@
 - ### v-if
 - ### v-bind
 - ### v-model
+- ### v-cloak
+        特殊属性，配合css解决网速慢页面展示出{{xxx}}的问题
+- ### v-once
+        节点初次动态渲染后就视为静态内容，数据变化不更新
+- ### v-pre
+        跳过所在节点的编译过程
 
 ## vue 事件修饰符
 
