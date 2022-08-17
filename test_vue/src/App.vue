@@ -38,7 +38,7 @@
     </Category>
 
     <Category title="作用域插槽1">
-      <template scope="scopeData">
+      <template slot-scope="scopeData">
         <h4>{{ scopeData }}</h4>
         <ol>
           <li v-for="(item, index) in scopeData.movies" :key="index">
@@ -49,7 +49,7 @@
     </Category>
 
     <Category title="作用域插槽2">
-      <template scope="scopeData" slot="slot2">
+      <template slot-scope="scopeData" slot="slot2">
         <h4>{{ scopeData }}</h4>
         <ol>
           <li v-for="(item, index) in scopeData.movies" :key="index">
