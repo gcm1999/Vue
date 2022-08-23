@@ -2,8 +2,8 @@
   <div>
     <h1>获取到的名字:{{ name }}</h1>
     <Student :getStudentName="getStudentName"></Student>
-    <!-- <School @myEvent="getSchoolName"></School> -->
-    <!-- 自定义事件第二种写法1 -->
+    <School @myEvent="getSchoolName"></School>
+    自定义事件第二种写法1
     <School ref="school"></School>
 
     <Category title="默认插槽">
@@ -58,12 +58,15 @@
         </ol>
       </template>
     </Category>
+
+    <!-- <City></City> -->
   </div>
 </template>
 <script>
 import Student from "./components/Student.vue";
 import School from "./components/School.vue";
 import Category from "./components/Category.vue";
+// import City from "./components/City";
 export default {
   name: "App",
   data() {
@@ -76,6 +79,7 @@ export default {
     Student,
     School,
     Category,
+    // City,
   },
   methods: {
     getStudentName(name) {
